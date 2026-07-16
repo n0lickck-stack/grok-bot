@@ -1,13 +1,16 @@
 import os
 import asyncio
 import requests
+import logging
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 from flask import Flask
 import threading
 
-# === Секреты берём из переменных окружения Render ===
-TELEGRAM_TOKEN = os.environ["TELEGRAM_TOKEN"]
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
+
+TELEGRAM_TOKEN = "8838141022:AAEMfHvXWwrwikvjcUk2B219xF51jEFnr74"
 GROQ_API_KEY = os.environ["GROQ_API_KEY"]
 
 # === Flask для Render (чтобы сервис "слушал" порт и не засыпал) ===
